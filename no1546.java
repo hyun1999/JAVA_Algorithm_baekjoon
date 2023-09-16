@@ -6,21 +6,17 @@ public class no1546 {
         int num = sc.nextInt();
         double max = 0;
         double[] arr = new double[num];
+        double sum = 0;
         for(int i = 0; i<num;i++){
             arr[i] = sc.nextInt();
             if(arr[i]>max){
                 max = arr[i];
             }
         }
-
-        double sum = 0;
         for(int i = 0; i<num;i++){
             arr[i] = arr[i]/max*100;
             sum += arr[i];
         }
         System.out.println(sum/num);
-
-
-
     }
 }
