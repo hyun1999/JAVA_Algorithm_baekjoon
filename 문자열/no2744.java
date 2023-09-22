@@ -19,6 +19,5 @@ public class no2744 {
         for (char c : arr) {
             System.out.print(c);
         }
-
     }
 }
