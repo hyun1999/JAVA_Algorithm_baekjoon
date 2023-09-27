@@ -7,26 +7,22 @@ public class no11005 {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
         int B = scan.nextInt();
-        int mixNum = 1;
-        int K = 0;
 
-        //최대 지수 구하기
-        while(mixNum * B <=N){
-            mixNum *=B;
-            K++;
-        }
-
-        //
         String result = "";
         while(N>0){
-            int D = N/mixNum;
-            N%=mixNum;
-            mixNum/=B;
-
-            if(D<10)result+=D;
-            else result+=((char)('A'+D-10));
+            int sum = N%B;
+            if(sum<10){
+                result+=sum;
+            }else{
+                result+=(char)('A'+sum-10);
+            }
+            N/=B;
         }
-        System.out.println(result);
+
+        for (int i = result.length()-1; i >= 0; i--) {
+            System.out.println(result.charAt(i));
+        }
+        System.out.println();
 
     }
 }
