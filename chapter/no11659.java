@@ -1,3 +1,5 @@
+package chapter;
+
 import java.util.Scanner;
 
 public class no11659 {

@@ -1,3 +1,5 @@
+package chapter;
+
 import java.util.Scanner;
 /**
  * 2750 수 정렬하기
