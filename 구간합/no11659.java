@@ -2,7 +2,7 @@ package 구간합;
 
 import java.util.Scanner;
 
-public class no16731 {
+public class no11659 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt(); // 수의 개수
