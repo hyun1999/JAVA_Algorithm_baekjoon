@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int T = scan.nextInt();
+        for (int tc = 1; tc <=T; tc++) {
+            int a = scan.nextInt();
+            int b = scan.nextInt();
+            int c = scan.nextInt();
+            int min = Math.min(a,b);
+            System.out.println("#"+tc+" "+(c/min));
+        }
+    }
+}
