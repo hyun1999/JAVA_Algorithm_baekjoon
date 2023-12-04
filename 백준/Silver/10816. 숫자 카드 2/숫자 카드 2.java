@@ -1,30 +1,27 @@
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
-        Map<Integer, Integer> map = new HashMap<>();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int N = Integer.parseInt(st.nextToken());
+        Map<Integer,Integer> map = new HashMap<>();
         st = new StringTokenizer(br.readLine());
+
         for (int i = 0; i < N; i++) {
-            int key = Integer.parseInt(st.nextToken());
-            map.put(key,map.getOrDefault(key,0)+1);
+            int x = Integer.parseInt(st.nextToken());
+            map.put(x,map.getOrDefault(x,0)+1);
         }
         st = new StringTokenizer(br.readLine());
         int M = Integer.parseInt(st.nextToken());
+
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < M; i++) {
-            int key = Integer.parseInt(st.nextToken());
-            bw.write(map.getOrDefault(key, 0)+" ");
+        while(M-->0){
+            int x = Integer.parseInt(st.nextToken());
+            bw.write(map.getOrDefault(x,0)+" ");
         }
         bw.flush();
-        bw.close();
-        br.close();
     }
 }
