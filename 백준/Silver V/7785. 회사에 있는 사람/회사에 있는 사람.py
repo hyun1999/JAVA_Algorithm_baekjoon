@@ -1,13 +1,15 @@
 import sys
-n = int(input())
-dic = {}
-for i in range(n):
-    name, state = map(str,sys.stdin.readline().split())
-    dic[name] = state
-dic_result = {}
-for key,value in dic.items():
-    if value == 'enter':
-        dic_result[key] = 'enter'
-sorted_result = sorted(dic_result,reverse=True)
-for i in sorted_result:
-    print(i)
+input = sys.stdin.readline
+
+# 입력
+N = int(input())
+company = {}
+for _ in range(N):
+    man, state = input().rstrip().split()
+    if state == 'enter':
+        company[man] = True
+    else:
+        del company[man]
+
+# 출력
+print("\n".join(sorted(company.keys(), reverse=True)))
