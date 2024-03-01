@@ -1,11 +1,12 @@
 import sys
 n = int(input())
-arr = sorted(list(map(int,sys.stdin.readline().split())))
+arr = list(map(int,sys.stdin.readline().split()))
 x = int(input())
 
 l = 0
-r = n-1
+r = len(arr)-1
 count=0
+arr.sort()
 while l<r:
     sum_val = arr[l]+arr[r]
     if sum_val == x:
