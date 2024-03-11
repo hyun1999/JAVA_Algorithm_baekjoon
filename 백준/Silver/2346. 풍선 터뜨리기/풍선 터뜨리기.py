@@ -1,29 +1,18 @@
 from collections import deque
 n = int(input())
-q = deque()
-arr = list(map(int,input().split()))
-index = 1
-result = []
-for i in arr:
-    q.append([i,index])
-    index+=1
-#입력 완료
 
-pung = q[0][0]
-result.append(q[0][1])
-q.popleft()
-for _ in range(n-1):
-    if pung > 0:
-        for _ in range(pung-1):
+q = deque(enumerate(map(int,input().split())))
+
+result = []
+while len(q) != 1:
+    first_val = q.popleft()
+    result.append(first_val[0]+1)
+    if first_val[1] > 0:
+        for _ in range(first_val[1]-1):
             q.append(q.popleft())
-        result.append(q[0][1])
-        pung = q[0][0]
-        q.popleft()
     else:
-        for _ in range(-pung):
+        for _ in range(-first_val[1]):
             q.appendleft(q.pop())
-        result.append(q[0][1])
-        pung = q[0][0]
-        q.popleft()
-for i in result:
-    print(i,end=' ')
+
+result.append(q.pop()[0]+1)
+print(*result)
