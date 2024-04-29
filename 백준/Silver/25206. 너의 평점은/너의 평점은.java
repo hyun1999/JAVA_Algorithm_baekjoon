@@ -1,36 +1,32 @@
-import java.io.*;
-import java.util.StringTokenizer;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
+        Scanner scan  = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        float total = 0;
+        int count = 0;
+        for (int i = 0; i <20 ; i++) {
+            String arr[] = br.readLine().split(" ");
+            float num = 0;
+            if(arr[2].equals("P")) continue;
+            else if (arr[2].equals("A+")) num = 4.5F;
+            else if (arr[2].equals("A0")) num = 4.0F;
+            else if (arr[2].equals("B+")) num = 3.5F;
+            else if (arr[2].equals("B0")) num = 3.0F;
+            else if (arr[2].equals("C+")) num = 2.5F;
+            else if (arr[2].equals("C0")) num = 2.0F;
+            else if (arr[2].equals("D+")) num = 1.5F;
+            else if (arr[2].equals("D0")) num = 1.0F;
+            else num = 0F;
 
-        String str[] = new String[20];
-        double totalSum = 0;
-        double scoreSum = 0;
-        String gradeList[] = {"A+", "A0", "B+", "B0", "C+", "C0", "D+", "D0", "F", "P"};
-        double gradeScore[] = {4.5, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0.0, 0.0};
+            total += num * Float.parseFloat(arr[1]);
+            if(!arr[2].equals("P")) count+=Float.parseFloat(arr[1]);
 
-        for (int i = 0; i < 20; i++) {
-            str[i] = bfr.readLine();
-            StringTokenizer st = new StringTokenizer(str[i], " ");
-            String subject = st.nextToken();
-            double score = Double.parseDouble(st.nextToken());
-            String grade = st.nextToken();
-
-            for (int j = 0; j < 10; j++) {
-                if (grade.equals(gradeList[j])) {
-                    totalSum += score * gradeScore[j];
-                    if (j != 9) {
-                        scoreSum += score;
-                    }
-                }
-            }
         }
-
-        double average = totalSum / scoreSum;
-        System.out.printf("%.6f\n", average);
-
-        bfr.close();
+        System.out.println((float)total/(float)count);
     }
 }
