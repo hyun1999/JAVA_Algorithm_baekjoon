@@ -1,28 +1,34 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        System.out.println(fibonacci(n));
 
-        int N = scan.nextInt();
-
-        int result = fibo(N);
-
-        System.out.println(result);
     }
-    static int[] cache = new int[50];
-    static int fibo(int n){
-        //base case
-        if(n==1||n==2){
-            return 1;
+    public static int fibonacci(int n){
+        int result = 0;
+        if(n == 1) result = 1;
+        else{
+            int beforeVal1 = 0;
+            int beforeVal2 = 1;
+            for (int i = 0; i < n-1; i++) {
+                result =  beforeVal1+beforeVal2;
+                beforeVal1 = beforeVal2;
+                beforeVal2 = result;
+            }
         }
-        if (cache[n] != 0) {
-            return cache[n];
-        }
-
-        //recursive case
-        cache[n] =  fibo(n-1)+fibo(n-2);
-        return cache[n];
+        return result;
     }
+
+//    public static int fibonacci(int n){
+//        if(n==0) return 0;
+//        else if (n==1) return 1;
+//        return fibonacci(n-1)+fibonacci(n-2);
+//    }
+
 }
