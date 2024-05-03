@@ -1,33 +1,24 @@
-import java.io.*;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Scanner scan = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[][] arr = new String[5][15];
-
         for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 15; j++) {
-                arr[i][j] = "-1";
+            String[] arrLocal = br.readLine().split("");
+            for (int j = 0; j < arrLocal.length; j++) {
+                arr[i][j] = arrLocal[j];
             }
         }
 
-        for (int i = 0; i <5; i++) {
-            String str = scan.nextLine();
-            for (int j = 0; j <str.length(); j++) {
-                arr[i][j] = String.valueOf(str.charAt(j));
-            }
-        }
-
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 5; j++) {
-                if(arr[j][i].equals("-1")){
-                    continue;
-                }else{
-                    System.out.print(arr[j][i]);
+        for (int j = 0; j < 15; j++) {
+            for (int i = 0; i < 5; i++) {
+                if(arr[i][j]!=null){
+                    System.out.print(arr[i][j]);
                 }
             }
         }
-
     }
 }
