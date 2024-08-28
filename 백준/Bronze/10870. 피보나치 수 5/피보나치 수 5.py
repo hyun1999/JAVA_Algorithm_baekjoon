@@ -1,9 +1,15 @@
 def recursion(n):
-	if n==0:
-		return 0
-	elif n==1:
-		return 1
-	elif n==2:
-		return 1
-	return recursion(n-2)+recursion(n-1)
-print(recursion(int(input())))
+	global arr
+
+	if arr[n]==-1:
+		arr[n] = recursion(n-2)+recursion(n-1)
+		return arr[n]
+	else:
+		return arr[n]
+
+n = int(input())
+arr = [-1] * (n+3)
+arr[0] = 0
+arr[1] = 1
+
+print(recursion(n))
