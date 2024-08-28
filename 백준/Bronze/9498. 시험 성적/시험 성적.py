@@ -1,2 +1,12 @@
-a = int(input())
-print('A') if a>=90 else print('B') if a>=80 else print('C') if a>=70 else print('D') if a>=60 else print('F')
+import sys
+value = int(sys.stdin.readline().rstrip())
+if(value >= 90):
+	print('A')
+elif(value >= 80):
+	print('B')
+elif(value >= 70):
+	print('C')
+elif(value >= 60):
+	print('D')
+else:
+	print('F')
