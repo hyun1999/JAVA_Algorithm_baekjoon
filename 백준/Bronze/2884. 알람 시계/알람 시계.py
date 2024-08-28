@@ -1,7 +1,8 @@
-h,m = map(int,input().split())
-total = h*60+m-45
-m = total%60
-h = total//60
-if h<0:
-    h += 24
-print(h,m)
+import sys
+hour,minuite = map(int,sys.stdin.readline().split())
+total = hour * 60 + minuite - 45
+if total < 0:
+	total = total + (24 * 60)
+	print(total//60,total%60)
+else:
+	print(total//60,total%60)
