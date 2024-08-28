@@ -1,9 +1,9 @@
-def jagui(i):
-    if i == 0:
-        return 0
-    elif i == 1:
-        return 1
-    else:
-        return jagui(i-1)+jagui(i-2)
-n = int(input())
-print(jagui(n))
+def recursion(n):
+	if n==0:
+		return 0
+	elif n==1:
+		return 1
+	elif n==2:
+		return 1
+	return recursion(n-2)+recursion(n-1)
+print(recursion(int(input())))
