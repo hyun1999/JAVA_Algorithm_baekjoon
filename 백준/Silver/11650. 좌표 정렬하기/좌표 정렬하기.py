@@ -1,11 +1,10 @@
-n = int(input())
-arr = []
-for i in range(n):
-    a,b = map(int,input().split())
-    arr.append([a,b])
+import sys
+N = int(sys.stdin.readline().rstrip())
+nums = []
+for _ in range(N):
+	num = list(map(int,sys.stdin.readline().split(" ")))
+	nums.append(num)
 
-arr.sort()
-for i in range(len(arr)):
-    for j in range(len(arr[i])):
-        print(arr[i][j],end=' ')
-    print()
+nums = sorted(nums)
+for num in nums:
+	print(' '.join(map(str,num)))
