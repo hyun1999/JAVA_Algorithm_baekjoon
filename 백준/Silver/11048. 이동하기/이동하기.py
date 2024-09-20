@@ -1,25 +1,17 @@
-N, M = map(int, input().split(" "))
-mapping = []
-dp = [[0] * M for _ in range(N)]  # DP 배열을 0으로 초기화
+N,M = map(int,input().split(" "))
+candy = []
+for _ in range(N):
+	candy.append(list(map(int,input().split(" "))))
 
-for i in range(N):
-    mapping.append(list(map(int, input().split(" "))))
+dp = [[0] * M for _ in range(N)]
+for i in range(M):
+	dp[0][i] = dp[0][i-1] + candy[0][i]
 
-# DP 배열 초기값 설정
-dp[0][0] = mapping[0][0]
+for j in range(N):
+	dp[j][0] = dp[j-1][0] + candy[j][0]
 
-# 첫 번째 행 초기화
-for c in range(1, M):
-    dp[0][c] = dp[0][c-1] + mapping[0][c]
+for i in range(1,N):
+	for j in range(1,M):
+		dp[i][j] = max(dp[i-1][j-1],dp[i-1][j],dp[i][j-1]) + candy[i][j]
 
-# 첫 번째 열 초기화
-for r in range(1, N):
-    dp[r][0] = dp[r-1][0] + mapping[r][0]
-
-# DP 배열 채우기
-for r in range(1, N):
-    for c in range(1, M):
-        dp[r][c] = max(dp[r-1][c], dp[r][c-1]) + mapping[r][c]
-
-# 결과 출력
 print(dp[N-1][M-1])
