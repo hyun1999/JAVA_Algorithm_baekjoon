@@ -1,20 +1,20 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
-class Main {
-    public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[] str = new int[N];
-        for (int i = 0; i < N; i++) {
-            str[i] = scan.nextInt();
-        }
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        br.readLine();
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int val = Integer.parseInt(br.readLine());
         int count = 0;
-        int find = scan.nextInt();
-        for (int i = 0; i < N; i++) {
-            if(str[i] == find){
+        while(st.hasMoreTokens()){
+            if(Integer.parseInt(st.nextToken()) == val){
                 count++;
             }
         }
         System.out.println(count);
+
     }
 }
