@@ -1,18 +1,12 @@
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        for (int i = 0; i < str.length(); i++) {
-            if(str.charAt(i)>='a'&&str.charAt(i)<='z'){
-                String str2 = String.valueOf(str.charAt(i));
-                System.out.print(str2.toUpperCase());
-            }else if(str.charAt(i)>='A'&&str.charAt(i)<='Z'){
-                String str2 = String.valueOf(str.charAt(i));
-                System.out.print(str2.toLowerCase());
-            }
-        }
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String st = Arrays.stream(br.readLine().split("")).map(c -> Character.isUpperCase(c.charAt(0)) ? c.toLowerCase() : c.toUpperCase()).collect(Collectors.joining());
+        System.out.println(st);
     }
 }
